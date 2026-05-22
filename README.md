@@ -211,15 +211,8 @@ llm-benchmark-dashboard/
         └── types/index.ts
 ```
 
----
 
-## Resume One-Liner
-
-> Built a self-hosted LLM evaluation platform comparing Gemma 2B, Phi-3 Mini, DeepSeek Coder 6.7B, Mistral 7B, and Llama 3.1 8B on Q&A, summarisation, code generation, and RAG tasks — measuring relevancy, faithfulness, hallucination rate, and latency with zero API cost using Ollama, LangSmith, FastAPI, and React.
-
----
-
-## Interview Talking Points
+## Points
 
 - **Why local models?** Cost control, data privacy, offline capability — no OpenAI/Anthropic key needed
 - **Why sequential execution?** Ollama queues requests on CPU anyway; sequential gives accurate per-model latency without timeout race conditions
