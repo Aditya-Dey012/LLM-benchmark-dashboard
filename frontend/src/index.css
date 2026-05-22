@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.35);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.6); }
+}
+
+@layer components {
+  .glass {
+    background: rgba(15, 17, 30, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(55, 65, 100, 0.4);
+  }
+
+  .glass-light {
+    background: rgba(25, 28, 50, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(75, 85, 120, 0.3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.4), 0 0 20px rgba(99, 102, 241, 0.1);
+  }
+
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+  .card-hover:hover {
+    transform: translateY(-1px);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.2);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-indigo-600 hover:bg-indigo-500 text-white
+           transition-all duration-200 shadow-lg shadow-indigo-500/20
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+           bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700
+           transition-all duration-200;
+  }
+
+  .input-base {
+    @apply w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3
+           text-gray-100 text-sm placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500
+           transition-all duration-200;
+  }
+
+  .label-base {
+    @apply block text-sm font-medium text-gray-300 mb-1.5;
+  }
+
+  .section-title {
+    @apply text-lg font-bold text-white;
+  }
+}
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+html.light body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Backgrounds */
+html.light .bg-gray-950     { background-color: #f8fafc !important; }
+html.light .bg-gray-950\/80 { background-color: rgb(248 250 252 / 0.92) !important; }
+html.light .bg-gray-900     { background-color: #ffffff !important; }
+html.light .bg-gray-800     { background-color: #e2e8f0 !important; }
+html.light .bg-gray-800\/60 { background-color: rgb(226 232 240 / 0.7) !important; }
+html.light .bg-gray-800\/50 { background-color: rgb(226 232 240 / 0.5) !important; }
+html.light .bg-gray-800\/30 { background-color: rgb(226 232 240 / 0.4) !important; }
+
+/* Text */
+html.light .text-white   { color: #0f172a !important; }
+html.light .text-gray-100 { color: #0f172a !important; }
+html.light .text-gray-200 { color: #1e293b !important; }
+html.light .text-gray-300 { color: #334155 !important; }
+html.light .text-gray-400 { color: #475569 !important; }
+html.light .text-gray-500 { color: #64748b !important; }
+html.light .text-gray-600 { color: #94a3b8 !important; }
+html.light .text-gray-700 { color: #cbd5e1 !important; }
+
+/* Borders */
+html.light .border-gray-800    { border-color: #e2e8f0 !important; }
+html.light .border-gray-800\/60 { border-color: rgb(203 213 225 / 0.8) !important; }
+html.light .border-gray-800\/40 { border-color: rgb(203 213 225 / 0.6) !important; }
+html.light .border-gray-700    { border-color: #cbd5e1 !important; }
+
+/* Dividers */
+html.light .divide-gray-800\/40 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(203 213 225 / 0.7) !important;
+}
+
+/* Hover states */
+html.light .hover\:bg-gray-800\/30:hover { background-color: rgb(226 232 240 / 0.6) !important; }
+html.light .hover\:bg-gray-700:hover     { background-color: #e2e8f0 !important; }
+html.light .hover\:text-gray-200:hover   { color: #0f172a !important; }
+
+/* Glass */
+html.light .glass {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(203, 213, 225, 0.55) !important;
+}
+
+html.light .glass-light {
+  background: rgba(248, 250, 252, 0.75) !important;
+  border-color: rgba(203, 213, 225, 0.4) !important;
+}
+
+/* Component overrides */
+html.light .input-base {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light .input-base::placeholder { color: #94a3b8 !important; }
+
+html.light .btn-secondary {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+html.light .btn-secondary:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .section-title { color: #0f172a !important; }
+html.light .label-base    { color: #334155 !important; }
+
+/* Scrollbar in light mode */
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.45);
+}
